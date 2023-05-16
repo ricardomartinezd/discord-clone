@@ -1,5 +1,5 @@
 :root {
-  --color-primary: #F2F3F5;
+  --color-primary: #f2f3f5;
   --shadow-low: 0px 3px 3px -2px rgba(0, 0, 0, 0.3);
 }
 
@@ -8,7 +8,8 @@ html {
   background-color: #2b2d31;
   margin: 0;
   overflow: hidden;
-  font-family: "gg sans", "Noto Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "gg sans", "Noto Sans", "Helvetica Neue", Helvetica, Arial,
+    sans-serif;
 }
 
 .ftperfil {
@@ -30,13 +31,17 @@ h6 {
   margin: 0;
 }
 
+h3 {
+  font-size: 12px;
+}
+
 #page {
   display: grid;
   grid-template-columns: 72px 240px 1fr 232px;
-  height: 100vh;
+  height: 100vh !important;
 }
 
-#page>div {
+#page > div {
   height: 100%;
 }
 
@@ -54,12 +59,12 @@ h6 {
   margin-bottom: 24px;
 }
 
-#servidores>* {
+#servidores > * {
   margin-bottom: 8px;
   flex-shrink: 0;
 }
 
-#servidores>.botao {
+#servidores > .botao-servidor {
   height: 48px;
   width: 48px;
   border-radius: 50%;
@@ -67,11 +72,11 @@ h6 {
   transition-property: background-color, border-radius;
 }
 
-#servidores>.botao:hover {
+#servidores > .botao-servidor:hover {
   border-radius: 30%;
 }
 
-#servidores>div.botao {
+#servidores > div.botao-servidor {
   background-color: #2b2d31;
   display: flex;
   align-items: center;
@@ -86,12 +91,13 @@ h6 {
   background: #21a559 !important;
 }
 
-.secundario>img {
+.secundario > img {
   transition: filter 300ms ease-in-out !important;
 }
 
-.secundario:hover>img {
-  filter: invert(88%) sepia(90%) saturate(0%) hue-rotate(261deg) brightness(1000%) contrast(97%) !important;
+.secundario:hover > img {
+  filter: invert(88%) sepia(90%) saturate(0%) hue-rotate(261deg)
+    brightness(1000%) contrast(97%) !important;
 }
 
 #chat {
@@ -105,9 +111,14 @@ h6 {
   border-radius: 1px;
 }
 
+.botao-cinza:hover {
+  background-color: #35373c;
+}
+
 #canais {
-  display: grid;
-  grid-template-rows: 48px 1fr 48px;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
 }
 
 .nomeserver {
@@ -118,20 +129,16 @@ h6 {
   color: var(--color-primary);
   box-shadow: var(--shadow-low);
   justify-content: space-between;
-}
-
-.cinzinha:hover {
-  background-color: #35373C;
-
+  height: 48px;
 }
 
 #salas {
-  overflow-x: hidden;
-  overflow-y: auto;
-  padding: 16px 6px 0px 0px
+  padding: 16px 6px 0px 0px;
+  flex: 1;
 }
 
 #audio {
+  height: 48px;
   background-color: #232428;
   height: 48px;
   padding: 0 8px;
@@ -146,23 +153,13 @@ h6 {
   align-items: center;
   width: 122px;
   margin: 0 8px 0 -2px;
-  padding: 0 0 0 2px;
+  padding: 4px 0 4px 2px;
   border-radius: 4px;
 }
 
-#audio .nametag .ftnametag {
-  display: flex;
-  align-items: center;
-}
-
 #audio .nametag .textonametag {
-  margin: 0 4px 0 0;
-  padding:  4px 0 4px 8px;
-}
-
-.svgsaudio {
-  display: flex;
-  align-items: center;
+  margin-right: 4px;
+  padding-left: 8px;
 }
 
 #audio .nametag .ftnametag img {
@@ -170,14 +167,20 @@ h6 {
   width: 32px;
 }
 
-#audio>.nametag h6 {
+#audio > .nametag h6 {
   font-size: 14px;
-  color: #F2F3F5
+  color: var(--color-primary);
 }
 
-#audio>.nametag p {
+#audio > .nametag p {
   font-size: 12px;
   color: #b5bac1;
+}
+
+/* TODO: Filho de quem? Bote o nome do pai pra ficar mais declarativo */
+.svgsaudio {
+  display: flex;
+  align-items: center;
 }
 
 #audio .svgsaudio .caixasvg {
@@ -189,13 +192,9 @@ h6 {
   border-radius: 4px;
 }
 
-#audio>.svgsaudio img {
+#audio > .svgsaudio img {
   height: 20px;
   width: 20px;
-}
-
-.espaço {
-  margin-left: 5px;
 }
 
 .conversa {
@@ -208,63 +207,62 @@ h6 {
   border-radius: 4px;
 }
 
-
-
 .conversa:hover {
   color: #dadadaec;
 }
 
 .conversa:active {
-  background-color: #35373C;
+  background-color: #35373c;
   color: #ffffff;
 }
 
-.conversa>img {
+.conversa > img {
   width: 20px;
   height: 20px;
 }
 
-.conversa>h6 {
+.conversa > h6 {
   font-size: 16px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   margin-left: 5px;
-
 }
 
+
+/* TODO: Filho de quem? Bote o nome do pai pra ficar mais declarativo */
 .icones {
   display: none;
   margin-left: auto;
   width: max-content;
-
 }
 
 .conversa:hover .icones,
 .conversa:active .icones {
   display: flex;
-
-
 }
 
 .icones img:not(:first-child) {
   margin-left: 5px;
 }
 
-.introduçao {
+
+/* TODO: Filho de quem? Bote o nome do pai pra ficar mais declarativo */
+.colapsavel {
   height: 24px;
-  color: #949BA4;
-  margin: 0;
+  color: #949ba4;
   font-size: 12px;
   display: flex;
   align-items: center;
 }
 
 .corfonte {
-  color: #949BA4;
+  color: #949ba4;
 }
 
-.head {
+
+/* TODO: Filho de quem? Bote o nome do pai pra ficar mais declarativo */
+.head-chat {
   padding-left: 8px;
   display: flex;
   align-items: center;
@@ -274,46 +272,44 @@ h6 {
   box-shadow: var(--shadow-low);
 }
 
+/* TODO: Filho de quem? Bote o nome do pai pra ficar mais declarativo */
 .cabeca {
   display: flex;
   align-items: center;
 }
 
-.cabeca>h6 {
+.cabeca > h6 {
   font-size: 16px;
-  color: #F2F3F5;
+  color: var(--color-primary);
 }
 
+/* TODO: Bote um nome menos genérico */
 .svgs {
   display: flex;
   align-items: center;
   gap: 16px;
   margin-right: 15px;
-
 }
 
-.overflowmembros {
-  overflow:auto
- 
-}
-
+/* TODO: Filho de quem? Bote o nome do pai pra ficar mais declarativo */
 .headmembros {
-  background-color: #313338;
   height: 48px;
   box-shadow: var(--shadow-low);
+  background-color: #313338;
+}
+
+/* TODO: Filho de quem? Bote o nome do pai pra ficar mais declarativo */
+.lista-membros {
   overflow-y: auto;
+  flex: 1;
 }
 
-h3 {
-  font-size: 12px;
-}
-
-.cargo {
+#membros .cargo {
   padding: 24px 8px 0 16px;
-  color: #949BA4;
+  color: #949ba4;
 }
 
-.usuarios {
+#membros .usuario {
   padding: 1px 0px 1px 8px;
   margin: 0 8px;
   display: flex;
@@ -323,19 +319,19 @@ h3 {
   border-radius: 4px;
 }
 
-.nome-usuario {
-  padding-left: 10px;
+#membros .nome-usuario {
+  margin-left: 10px;
 }
 
-.redmembros {
+/* TODO: Mudar o nome */
+#membros .redmembros {
   color: rgb(255, 0, 157);
 }
 
-.bluemembros {
+#membros .bluemembros {
   color: rgb(0, 247, 255);
 }
 
-.greenmembros {
+#membros .greenmembros {
   color: yellow;
 }
-

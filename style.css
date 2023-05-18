@@ -10,6 +10,7 @@ html {
   overflow: hidden;
   font-family: "gg sans", "Noto Sans", "Helvetica Neue", Helvetica, Arial,
     sans-serif;
+  color: var(--color-primary);
 }
 
 .ftperfil {
@@ -42,7 +43,7 @@ h3 {
 }
 
 #page > div {
-  height: 100%;
+  height: 100vh;
 }
 
 #servidores {
@@ -126,7 +127,6 @@ h3 {
   display: flex;
   align-items: center;
   font-weight: 600;
-  color: var(--color-primary);
   box-shadow: var(--shadow-low);
   justify-content: space-between;
   height: 48px;
@@ -135,6 +135,7 @@ h3 {
 #salas {
   padding: 16px 6px 0px 0px;
   flex: 1;
+  overflow-y: auto;
 }
 
 #audio {
@@ -169,7 +170,6 @@ h3 {
 
 #audio > .nametag h6 {
   font-size: 14px;
-  color: var(--color-primary);
 }
 
 #audio > .nametag p {
@@ -177,8 +177,7 @@ h3 {
   color: #b5bac1;
 }
 
-/* TODO: Filho de quem? Bote o nome do pai pra ficar mais declarativo */
-.svgsaudio {
+#audio .svgsaudio {
   display: flex;
   align-items: center;
 }
@@ -229,9 +228,7 @@ h3 {
   margin-left: 5px;
 }
 
-
-/* TODO: Filho de quem? Bote o nome do pai pra ficar mais declarativo */
-.icones {
+.conversa .icones {
   display: none;
   margin-left: auto;
   width: max-content;
@@ -246,9 +243,7 @@ h3 {
   margin-left: 5px;
 }
 
-
-/* TODO: Filho de quem? Bote o nome do pai pra ficar mais declarativo */
-.colapsavel {
+#salas .colapsavel {
   height: 24px;
   color: #949ba4;
   font-size: 12px;
@@ -256,13 +251,12 @@ h3 {
   align-items: center;
 }
 
-.corfonte {
-  color: #949ba4;
+#chat {
+  display: flex;
+  flex-direction: column;
 }
 
-
-/* TODO: Filho de quem? Bote o nome do pai pra ficar mais declarativo */
-.head-chat {
+#chat .head {
   padding-left: 8px;
   display: flex;
   align-items: center;
@@ -270,38 +264,85 @@ h3 {
   background-color: #313338;
   height: 48px;
   box-shadow: var(--shadow-low);
+
+  flex-shrink: 0;
 }
 
-/* TODO: Filho de quem? Bote o nome do pai pra ficar mais declarativo */
-.cabeca {
+#chat .head .titulo-container {
   display: flex;
   align-items: center;
 }
 
-.cabeca > h6 {
+#chat .head .titulo-container > h6 {
   font-size: 16px;
-  color: var(--color-primary);
 }
 
-/* TODO: Bote um nome menos genérico */
-.svgs {
+#chat .head .acoes {
   display: flex;
   align-items: center;
   gap: 16px;
   margin-right: 15px;
 }
 
-/* TODO: Filho de quem? Bote o nome do pai pra ficar mais declarativo */
-.headmembros {
+#chat .chat-conteudo {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  overflow-y: auto;
+  flex: 1;
+}
+
+#chat .mensagem {
+  display: flex;
+  gap: 16px;
+  padding: 18px;
+}
+
+#chat .mensagem .ftperfil {
+  width: 40px;
+  height: 40px;
+}
+
+#chat .mensagem .info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+#chat .mensagem .info > * {
+  line-height: 1;
+}
+
+#chat .mensagem .nome {
+  font-size: 16px;
+  font-weight: normal;
+  color:rgb(0, 247, 255)
+}
+
+#chat .mensagem .data {
+  font-size: 12px;
+  color: #949ba4;
+}
+
+#chat .mensagem .mensagem-conteudo {
+  font-size: 14px;
+}
+
+#membros {
+  display: flex;
+  flex-direction: column;
+}
+
+#membros .head {
   height: 48px;
   box-shadow: var(--shadow-low);
   background-color: #313338;
+  flex-shrink: 0;
 }
 
-/* TODO: Filho de quem? Bote o nome do pai pra ficar mais declarativo */
-.lista-membros {
+#membros .lista-membros {
   overflow-y: auto;
-  flex: 1;
 }
 
 #membros .cargo {
@@ -324,7 +365,7 @@ h3 {
 }
 
 /* TODO: Mudar o nome */
-#membros .redmembros {
+#membros .redmembros { 
   color: rgb(255, 0, 157);
 }
 
